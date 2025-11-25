@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>COCINOX 2026 — Expositores</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Información para expositores de COCINOX 2026: razones para exponer, beneficios, servicios incluidos y características de los stands."
+    />
+
+    <!-- Fuentes -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --c-bg: #ffffff;
+        --c-text: #042b54;
+        --c-dark: #000000;
+        --c-accent: #9b7c59;
+        --c-muted: #e5e7eb;
+        --c-soft: #f5f5f5;
+
+        --radius: 14px;
+        --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        background: var(--c-bg);
+        color: var(--c-text);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .wrap {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* HEADER ------------------------------------------------------------ */
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 70px;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand-logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 999px;
+        overflow: hidden;
+        box-shadow: 0 0 0 2px rgba(155, 124, 89, 0.22);
+      }
+
+      .brand-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-title {
+        font-family: "Montserrat", system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.08em;
+      }
+
+      .brand-sub {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: rgba(4, 43, 84, 0.7);
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+      }
+
+      nav a {
+        position: relative;
+        padding-bottom: 3px;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 0;
+        background: var(--c-accent);
+        transition: width 0.18s ease-out;
+      }
+
+      nav a:hover::after,
+      nav a:focus-visible::after {
+        width: 100%;
+      }
+
+      nav a.is-active::after {
+        width: 100%;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .social {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .social a {
+        display: inline-flex;
+        width: 32px;
+        height: 32px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        border: 1px solid rgba(4, 43, 84, 0.12);
+        background: #ffffff;
+        overflow: hidden;
+        transition: background 0.18s ease-out, transform 0.18s ease-out,
+          box-shadow 0.18s ease-out;
+      }
+
+      .social a:hover {
+        background: rgba(155, 124, 89, 0.08);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+        transform: translateY(-1px);
+      }
+
+      .social img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .social-whatsapp {
+        background: #25d366;
+        border-color: #25d366;
+      }
+
+      .social-whatsapp:hover {
+        background: #20b85a;
+        border-color: #20b85a;
+      }
+
+      .auth-links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* BOTONES ----------------------------------------------------------- */
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: background 0.2s ease-out, border-color 0.2s ease-out,
+          color 0.2s ease-out, transform 0.1s ease-out,
+          box-shadow 0.2s ease-out;
+        text-decoration: none;
+      }
+
+      .btn-outline {
+        background: transparent;
+        border-color: rgba(4, 43, 84, 0.22);
+        color: var(--c-text);
+      }
+
+      .btn-outline:hover {
+        border-color: var(--c-accent);
+        color: var(--c-dark);
+        background: rgba(155, 124, 89, 0.06);
+      }
+
+      .btn-primary {
+        background: var(--c-accent);
+        border-color: var(--c-accent);
+        color: #ffffff;
+        box-shadow: 0 12px 30px rgba(155, 124, 89, 0.5);
+      }
+
+      .btn-primary:hover {
+        background: #8a6b4c;
+        border-color: #8a6b4c;
+        transform: translateY(-1px);
+        box-shadow: 0 18px 40px rgba(155, 124, 89, 0.55);
+      }
+
+      .btn-small {
+        padding: 7px 16px;
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+      }
+
+      /* SECCIONES GENERALES ---------------------------------------------- */
+
+      section {
+        padding: 56px 0;
+      }
+
+      .section-header {
+        margin-bottom: 32px;
+      }
+
+      .section-kicker {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: rgba(4, 43, 84, 0.7);
+        margin-bottom: 8px;
+      }
+
+      .section-title {
+        font-family: "Montserrat", system-ui, sans-serif;
+        font-size: 1.8rem;
+        margin: 0 0 8px;
+        color: var(--c-dark);
+      }
+
+      .section-subtitle {
+        margin: 0;
+        font-size: 0.96rem;
+        color: rgba(4, 43, 84, 0.85);
+        max-width: 720px;
+      }
+
+      .grid-two {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+      }
+
+      .card {
+        border-radius: var(--radius);
+        border: 1px solid rgba(4, 43, 84, 0.1);
+        background: #ffffff;
+        padding: 18px 20px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+      }
+
+      .card h3 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+        font-family: "Montserrat", system-ui, sans-serif;
+        color: var(--c-dark);
+      }
+
+      .list-compact {
+        padding-left: 18px;
+        margin: 8px 0 0;
+        font-size: 0.92rem;
+      }
+
+      .list-compact li + li {
+        margin-top: 4px;
+      }
+
+      .pill {
+        display: inline-block;
+        padding: 2px 10px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        background: rgba(4, 43, 84, 0.05);
+        color: rgba(4, 43, 84, 0.8);
+        margin-bottom: 8px;
+      }
+
+      /* HERO EXPOSITORES -------------------------------------------------- */
+
+      .hero-expo {
+        padding: 48px 0 56px;
+        background: linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #f7f3ed 35%,
+          #ffffff 100%
+        );
+      }
+
+      .hero-expo-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+        gap: 40px;
+        align-items: center;
+      }
+
+      .hero-expo-kicker {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: rgba(4, 43, 84, 0.75);
+        margin-bottom: 10px;
+      }
+
+      .hero-expo-title {
+        font-family: "Montserrat", system-ui, sans-serif;
+        font-size: 2rem;
+        margin: 0 0 12px;
+        color: var(--c-dark);
+      }
+
+      .hero-expo-text {
+        font-size: 0.98rem;
+        margin: 0 0 18px;
+        color: rgba(4, 43, 84, 0.9);
+      }
+
+      .hero-expo-list {
+        padding-left: 18px;
+        margin: 10px 0 18px;
+        font-size: 0.96rem;
+      }
+
+      .hero-expo-list li + li {
+        margin-top: 4px;
+      }
+
+      .hero-expo-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 8px;
+      }
+
+      .hero-expo-media {
+        border-radius: 24px;
+        overflow: hidden;
+        background: #ffffff;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .hero-expo-media img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      /* DOCUMENTOS PARA EXPOSITORES -------------------------------------- */
+
+      .docs-section {
+        background: #fdf7f0;
+        border-top: 1px solid rgba(4, 43, 84, 0.04);
+        border-bottom: 1px solid rgba(4, 43, 84, 0.04);
+      }
+
+      .docs-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: 24px;
+      }
+
+      .doc-card {
+        border-radius: var(--radius);
+        padding: 18px 20px;
+        background: #ffffff;
+        border: 1px solid rgba(155, 124, 89, 0.3);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.06);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .doc-title {
+        font-family: "Montserrat", system-ui, sans-serif;
+        font-size: 1.02rem;
+        font-weight: 600;
+      }
+
+      .doc-text {
+        font-size: 0.9rem;
+        color: rgba(4, 43, 84, 0.88);
+      }
+
+      /* BENEFICIOS -------------------------------------------------------- */
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+        margin-top: 24px;
+      }
+
+      .benefit-card {
+        border-radius: var(--radius);
+        padding: 18px 20px;
+        background: #ffffff;
+        border: 1px solid rgba(4, 43, 84, 0.1);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.04);
+      }
+
+      .benefit-card h3 {
+        margin: 0 0 6px;
+        font-size: 1rem;
+        font-family: "Montserrat", system-ui, sans-serif;
+      }
+
+      .benefit-card p {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      /* INFORMACIÓN DE STANDS -------------------------------------------- */
+
+      .stands-section {
+        background: var(--c-soft);
+      }
+
+      .stands-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        gap: 28px;
+        align-items: flex-start;
+      }
+
+      .stands-block {
+        border-radius: var(--radius);
+        background: #ffffff;
+        padding: 20px 22px;
+        border: 1px solid rgba(4, 43, 84, 0.12);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.05);
+      }
+
+      .stands-block h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+        font-family: "Montserrat", system-ui, sans-serif;
+      }
+
+      .stands-block h4 {
+        margin: 16px 0 6px;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+
+      .layout-figure {
+        border-radius: 20px;
+        background: #ffffff;
+        border: 1px solid rgba(4, 43, 84, 0.12);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.05);
+        padding: 16px 18px;
+      }
+
+      .layout-figure img {
+        border-radius: 16px;
+      }
+
+      .layout-caption {
+        margin-top: 8px;
+        font-size: 0.8rem;
+        text-align: center;
+        color: rgba(4, 43, 84, 0.75);
+      }
+
+      /* FOOTER ------------------------------------------------------------ */
+
+      footer {
+        padding: 28px 0 32px;
+        font-size: 0.8rem;
+        color: rgba(4, 43, 84, 0.6);
+      }
+
+      footer .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+      }
+
+      /* RESPONSIVE -------------------------------------------------------- */
+
+      @media (max-width: 960px) {
+        .hero-expo-inner {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .docs-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .benefits-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .stands-layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        nav {
+          display: none;
+        }
+
+        .auth-links {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .benefits-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        section {
+          padding: 44px 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- HEADER -->
+      <header>
+        <div class="wrap header-inner">
+          <a href="index.html" class="brand">
+            <div class="brand-logo">
+              <img
+                src="img/logo-cocinox-2026-redondo.png"
+                alt="Logo redondo COCINOX 2026"
+              />
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">COCINOX 2026</span>
+              <span class="brand-sub">Feria Gastronómica Profesional</span>
+            </div>
+          </a>
+
+          <nav aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="visitantes.html">Visitantes</a>
+            <a href="expositores.html" class="is-active">Expositores</a>
+            <a href="contacto.html">Contacto</a>
+          </nav>
+
+          <div class="header-right">
+            <div class="social" aria-label="Redes sociales">
+              <a
+                href="https://www.facebook.com/share/1L26wHVXCZ/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+              >
+                <img src="img/logo facebook.png" alt="Facebook" />
+              </a>
+              <a
+                href="https://www.instagram.com/cocinox_2026?igsh=MXByeGYxMDZ1N3BxMA=="
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+              >
+                <img src="img/logo instagram.png" alt="Instagram" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@cocinox_2026?_r=1&_t=ZS-91fcSIJhsVY"
+                target="_blank"
+                rel="noopener"
+                aria-label="TikTok"
+              >
+                <img src="img/logo tiktok.png" alt="TikTok" />
+              </a>
+              <a
+                href="https://wa.me/51936849882?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20para%20exponer%20como%20expositor%20en%20COCINOX%202026."
+                target="_blank"
+                rel="noopener"
+                aria-label="WhatsApp"
+                class="social-whatsapp"
+              >
+                <img src="img/logo whatsapp.png" alt="WhatsApp" />
+              </a>
+              <a
+                href="mailto:cocinox2026@gmail.com?subject=Consulta%20para%20exponer%20en%20COCINOX%202026"
+                aria-label="Correo"
+              >
+                <img src="img/logo correo.png" alt="Correo" />
+              </a>
+            </div>
+            <div class="auth-links">
+              <a href="registro.html" class="btn btn-outline btn-small"
+                >Registrar</a
+              >
+              <a href="acceso.html" class="btn btn-primary btn-small"
+                >Acceder</a
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- HERO: RAZONES PARA EXPONER -->
+        <section class="hero-expo">
+          <div class="wrap hero-expo-inner">
+            <div>
+              <div class="hero-expo-kicker">Expositores</div>
+              <h1 class="hero-expo-title">Razones para exponer</h1>
+              <p class="hero-expo-text">
+                COCINOX 2026 reúne a decisores del mercado HORECA y a
+                entusiastas de la gastronomía que buscan equipamiento,
+                soluciones y marcas confiables. Tu stand se convierte en un
+                punto estratégico para generar ventas, posicionamiento y
+                relaciones a largo plazo.
+              </p>
+              <ul class="hero-expo-list">
+                <li>
+                  Contacto directo con compradores, dueños de negocios,
+                  chefs&nbsp;ejecutivos y emprendedores gastronómicos.
+                </li>
+                <li>
+                  Escenario ideal para presentar lanzamientos, nuevas líneas de
+                  equipos y demostraciones en vivo.
+                </li>
+                <li>
+                  Presencia integrada: feria presencial, activaciones en
+                  tarima, contenidos digitales y redes sociales oficiales.
+                </li>
+                <li>
+                  Oportunidad de construir alianzas comerciales y captar
+                  distribuidores para tus marcas.
+                </li>
+              </ul>
+              <div class="hero-expo-cta">
+                <a
+                  href="registro.html"
+                  class="btn btn-primary btn-small"
+                  >Reservar stand</a
+                >
+                <a
+                  href="https://wa.me/51936849882?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20para%20expositor%20en%20COCINOX%202026."
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-outline btn-small"
+                  >Solicitar información</a
+                >
+              </div>
+            </div>
+
+            <div class="hero-expo-media" aria-label="Vista de stand COCINOX">
+              <img src="img/Stans.png" alt="Ejemplo de stand en COCINOX 2026" />
+            </div>
+          </div>
+        </section>
+
+        <!-- DOCUMENTOS CLAVE -->
+        <section class="docs-section">
+          <div class="wrap">
+            <div class="section-header">
+              <div class="section-kicker">Documentos para expositores</div>
+              <h2 class="section-title">Información esencial antes de reservar</h2>
+              <p class="section-subtitle">
+                Ponemos a disposición un brochure comercial y el reglamento
+                general de participación para que puedas revisar condiciones,
+                servicios incluidos y normas de operación durante la feria.
+              </p>
+            </div>
+
+            <div class="docs-grid">
+              <article class="doc-card">
+                <div class="doc-title">Descargar brochure de COCINOX 2026</div>
+                <p class="doc-text">
+                  Resumen comercial de la feria: público objetivo, propuesta de
+                  valor, plano general, formatos de stands y servicios de apoyo
+                  al expositor.
+                </p>
+                <a href="#" class="btn btn-outline btn-small"
+                  >Descargar brochure</a
+                >
+              </article>
+
+              <article class="doc-card">
+                <div class="doc-title">Descargar reglamento general</div>
+                <p class="doc-text">
+                  Documento con las condiciones de participación, horarios de
+                  montaje y desmontaje, normas de seguridad, uso de energía,
+                  limpieza, seguros y responsabilidades.
+                </p>
+                <a href="#" class="btn btn-outline btn-small"
+                  >Descargar reglamento</a
+                >
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- BENEFICIOS PARA EL EXPOSITOR -->
+        <section>
+          <div class="wrap">
+            <div class="section-header">
+              <div class="section-kicker">Beneficios</div>
+              <h2 class="section-title">Beneficios para el expositor</h2>
+              <p class="section-subtitle">
+                COCINOX 2026 ha sido diseñada para que cada stand aproveche al
+                máximo su inversión, combinando visibilidad, logística integrada
+                y servicios operativos ya incluidos en el valor del espacio.
+              </p>
+            </div>
+
+            <div class="benefits-grid">
+              <article class="benefit-card">
+                <h3>78 stands disponibles</h3>
+                <p>
+                  Espacios modulares de <strong>5 × 5 m (25 m²)</strong> en
+                  zonas estratégicas del layout ferial, con opciones de venta o
+                  alquiler según la necesidad de cada marca.
+                </p>
+              </article>
+
+              <article class="benefit-card">
+                <h3>Visibilidad presencial y digital</h3>
+                <p>
+                  Inclusión en las comunicaciones oficiales de la feria,
+                  visibilidad básica en redes sociales, web y piezas impresas,
+                  además de señalética en el recinto.
+                </p>
+              </article>
+
+              <article class="benefit-card">
+                <h3>Logística básica incluida</h3>
+                <p>
+                  Servicio de <strong>montaje y desmontaje básico</strong> del
+                  stand, coordinación con el equipo técnico de la feria y
+                  soporte general durante los días de evento.
+                </p>
+              </article>
+
+              <article class="benefit-card">
+                <h3>Servicios de agua y energía</h3>
+                <p>
+                  El costo del stand considera el
+                  <strong>uso de agua y energía eléctrica básica</strong>,
+                  ideal para demostraciones de equipamiento gastronómico en
+                  vivo.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- SERVICIOS ADICIONALES -->
+        <section>
+          <div class="wrap">
+            <div class="section-header">
+              <div class="section-kicker">Servicios adicionales</div>
+              <h2 class="section-title">Opciones extra para potenciar tu stand</h2>
+              <p class="section-subtitle">
+                Además de los beneficios incluidos en el valor del stand,
+                COCINOX 2026 ofrece servicios adicionales para marcas que
+                desean una presencia aún más intensa y datos para la etapa
+                postferia.
+              </p>
+            </div>
+
+            <div class="benefits-grid">
+              <article class="benefit-card">
+                <h3>Upgrade de visibilidad digital</h3>
+                <p>
+                  Paquete de <strong>presencia destacada</strong> en redes
+                  sociales, web y piezas digitales de la feria: publicaciones
+                  especiales, menciones y espacios protagónicos.
+                  <br /><br />
+                  <strong>Inversión adicional: S/ 1 500.</strong>
+                </p>
+              </article>
+
+              <article class="benefit-card">
+                <h3>Upgrade logístico</h3>
+                <p>
+                  Refuerzo en <strong>logística de montaje y desmontaje</strong>,
+                  apoyo extra en coordinación técnica, tiempos extendidos y
+                  soporte dedicado para instalaciones más complejas.
+                  <br /><br />
+                  <strong>Inversión adicional: S/ 1 500.</strong>
+                </p>
+              </article>
+
+              <article class="benefit-card">
+                <h3>Analítica de datos postferia</h3>
+                <p>
+                  Servicio premium de <strong>analítica de datos</strong> con
+                  consolidado de leads, registros, interacciones y
+                  comportamiento del público para tu seguimiento comercial.
+                  <br /><br />
+                  <strong>Inversión adicional: S/ 1 500.</strong>
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- INFORMACIÓN DE STANDS -->
+        <section class="stands-section">
+          <div class="wrap">
+            <div class="section-header">
+              <div class="section-kicker">Stands</div>
+              <h2 class="section-title">Información de stands</h2>
+              <p class="section-subtitle">
+                Los stands de COCINOX 2026 están pensados para que puedas
+                operar con comodidad, mostrar tu equipamiento y recibir a tus
+                clientes en un espacio profesional y ordenado.
+              </p>
+            </div>
+
+            <div class="stands-layout">
+              <div class="stands-block">
+                <h3>Características generales</h3>
+                <ul class="list-compact">
+                  <li>
+                    Estructura modular tipo
+                    <strong>Octanorm</strong> con paneles de acabado claro.
+                  </li>
+                  <li>
+                    <strong>Cenefa superior</strong> con el nombre de la marca
+                    o expositor.
+                  </li>
+                  <li>
+                    Paredes divisorias en melamina blanca que delimitan el
+                    espacio de 5 × 5 m.
+                  </li>
+                  <li>
+                    Piso con acabado apto para alto tránsito, ideal para
+                    demostraciones de maquinaria gastronómica.
+                  </li>
+                  <li>1 tomacorriente doble 220 V.</li>
+                  <li>
+                    <strong>Energía básica de 500 W</strong> incluida por stand.
+                  </li>
+                  <li>
+                    Acceso a puntos de <strong>agua</strong> según el tipo de
+                    equipamiento a exhibir (previa coordinación técnica).
+                  </li>
+                </ul>
+
+                <h4>Servicios incluidos al expositor</h4>
+                <ul class="list-compact">
+                  <li>Credenciales de expositor para el personal de stand.</li>
+                  <li>
+                    Inclusión en el listado oficial de expositores en web y
+                    piezas informativas.
+                  </li>
+                  <li>
+                    Apoyo logístico básico durante montaje y desmontaje dentro
+                    de los horarios establecidos.
+                  </li>
+                  <li>
+                    Difusión de la marca en canales oficiales de COCINOX 2026
+                    según el paquete contratado.
+                  </li>
+                </ul>
+
+                <h4>No incluye</h4>
+                <ul class="list-compact">
+                  <li>
+                    <strong>Mobiliario</strong> (mostradores, vitrinas, sillas,
+                    etc.). Puede contratarse como servicio adicional.
+                  </li>
+                </ul>
+
+                <h4>Inversión por stand</h4>
+                <p
+                  style="
+                    font-size: 0.92rem;
+                    margin: 6px 0 0;
+                  "
+                >
+                  Precio referencial por cada stand de 25 m²:
+                  <strong>S/ 7 500</strong>.
+                </p>
+              </div>
+
+              <div class="layout-figure">
+                <img
+                  src="img/lyout.jpeg"
+                  alt="Layout general de stands COCINOX 2026"
+                />
+                <div class="layout-caption">
+                  Distribución referencial de los 78 stands de 5 × 5 m en el
+                  recinto ferial.
+                </div>
+                <div style="margin-top: 16px;">
+                  <img
+                    src="img/Stans.png"
+                    alt="Vista 3D referencial de un stand COCINOX"
+                  />
+                  <div class="layout-caption">
+                    Ejemplo de stand modular con cenefa, paredes y espacio
+                    libre para exhibición de equipamiento.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="wrap">
+          <span>© 2026 COCINOX 2026. Equipamiento y Soluciones Gastronómicas.</span>
+          <span>Centro de Convenciones de Lima · Sala Plenaria · Lima, Perú</span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

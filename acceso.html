@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Acceso — COCINOX 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Fuentes -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --c-bg: #ffffff;
+        --c-text: #042b54;
+        --c-dark: #000000;
+        --c-accent: #9b7c59;
+        --c-muted: #e5e7eb;
+        --c-soft: #f5f5f5;
+
+        --radius: 14px;
+        --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        background: var(--c-bg);
+        color: var(--c-text);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .wrap {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* HEADER (igual que en registro) */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 70px;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand-logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 999px;
+        overflow: hidden;
+        box-shadow: 0 0 0 2px rgba(155, 124, 89, 0.22);
+      }
+
+      .brand-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-title {
+        font-family: "Montserrat", system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.08em;
+      }
+
+      .brand-sub {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: rgba(4, 43, 84, 0.7);
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+      }
+
+      nav a {
+        position: relative;
+        padding-bottom: 3px;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 0;
+        background: var(--c-accent);
+        transition: width 0.18s ease-out;
+      }
+
+      nav a:hover::after,
+      nav a:focus-visible::after {
+        width: 100%;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .social {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .social a {
+        display: inline-flex;
+        width: 32px;
+        height: 32px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        border: 1px solid rgba(4, 43, 84, 0.12);
+        background: #ffffff;
+        overflow: hidden;
+        transition: background 0.18s ease-out, transform 0.18s ease-out,
+          box-shadow 0.18s ease-out;
+      }
+
+      .social a:hover {
+        background: rgba(155, 124, 89, 0.08);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+        transform: translateY(-1px);
+      }
+
+      .social img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .social-tiktok img {
+        width: 120%;
+        height: 120%;
+      }
+
+      .social-whatsapp {
+        background: #25d366;
+        border-color: #25d366;
+      }
+
+      .social-whatsapp:hover {
+        background: #20b85a;
+        border-color: #20b85a;
+      }
+
+      .social-whatsapp svg {
+        width: 80%;
+        height: 80%;
+      }
+
+      .auth-links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: background 0.2s ease-out, border-color 0.2s ease-out,
+          color 0.2s ease-out, transform 0.1s ease-out,
+          box-shadow 0.2s ease-out;
+        text-decoration: none;
+      }
+
+      .btn-outline {
+        background: transparent;
+        border-color: rgba(4, 43, 84, 0.22);
+        color: var(--c-text);
+      }
+
+      .btn-outline:hover {
+        border-color: var(--c-accent);
+        color: var(--c-dark);
+        background: rgba(155, 124, 89, 0.06);
+      }
+
+      .btn-primary {
+        background: var(--c-accent);
+        border-color: var(--c-accent);
+        color: #ffffff;
+        box-shadow: 0 12px 30px rgba(155, 124, 89, 0.5);
+      }
+
+      .btn-primary:hover {
+        background: #8a6b4c;
+        border-color: #8a6b4c;
+        transform: translateY(-1px);
+        box-shadow: 0 18px 40px rgba(155, 124, 89, 0.55);
+      }
+
+      .btn-small {
+        padding: 7px 16px;
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+      }
+
+      /* CONTENIDO PRINCIPAL: ACCESO */
+
+      main {
+        flex: 1;
+        background: linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #f8f4ef 35%,
+          #ffffff 100%
+        );
+        padding: 40px 0 60px;
+      }
+
+      .auth-layout {
+        max-width: 900px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        gap: 32px;
+        align-items: center;
+      }
+
+      .auth-copy h1 {
+        font-family: "Montserrat", system-ui, sans-serif;
+        font-size: 1.8rem;
+        margin: 0 0 8px;
+        color: var(--c-dark);
+      }
+
+      .auth-copy p {
+        margin: 0 0 16px;
+        font-size: 0.98rem;
+        color: rgba(4, 43, 84, 0.85);
+      }
+
+      .auth-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 22px 22px 24px;
+        box-shadow: var(--shadow-soft);
+        border: 1px solid rgba(155, 124, 89, 0.2);
+      }
+
+      .auth-card h2 {
+        margin: 0 0 4px;
+        font-family: "Montserrat", system-ui, sans-serif;
+        font-size: 1.3rem;
+        color: var(--c-dark);
+      }
+
+      .auth-card small {
+        display: block;
+        margin-bottom: 16px;
+        font-size: 0.86rem;
+        color: rgba(4, 43, 84, 0.75);
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .field label {
+        font-size: 0.86rem;
+        font-weight: 500;
+        color: rgba(4, 43, 84, 0.9);
+      }
+
+      input {
+        border-radius: 10px;
+        border: 1px solid rgba(4, 43, 84, 0.25);
+        padding: 8px 10px;
+        font-size: 0.9rem;
+        font-family: inherit;
+        outline: none;
+        background: #ffffff;
+      }
+
+      input:focus {
+        border-color: var(--c-accent);
+        box-shadow: 0 0 0 1px rgba(155, 124, 89, 0.4);
+      }
+
+      .auth-actions {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .auth-actions p {
+        margin: 0;
+        font-size: 0.85rem;
+        color: rgba(4, 43, 84, 0.75);
+      }
+
+      .auth-actions a.link-inline {
+        color: var(--c-accent);
+        font-weight: 500;
+      }
+
+      .forgot-link {
+        font-size: 0.8rem;
+        text-align: right;
+        margin-top: -4px;
+        margin-bottom: 4px;
+      }
+
+      .forgot-link a {
+        color: var(--c-accent);
+      }
+
+      footer {
+        padding: 24px 0 30px;
+        font-size: 0.8rem;
+        color: rgba(4, 43, 84, 0.6);
+      }
+
+      footer .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+      }
+
+      @media (max-width: 900px) {
+        nav {
+          display: none;
+        }
+
+        .auth-layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .auth-card {
+          order: -1;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .auth-links {
+          display: none;
+        }
+
+        main {
+          padding-top: 26px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- HEADER -->
+      <header>
+        <div class="wrap header-inner">
+          <a href="index.html#inicio" class="brand">
+            <div class="brand-logo">
+              <img
+                src="img/logo-cocinox-2026-redondo.png"
+                alt="Logo redondo COCINOX 2026"
+              />
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">COCINOX 2026</span>
+              <span class="brand-sub">Feria Gastronómica Profesional</span>
+            </div>
+          </a>
+
+          <nav aria-label="Navegación principal">
+            <a href="index.html#inicio">Inicio</a>
+            <a href="visitantes.html">Visitantes</a>
+            <a href="expositores.html">Expositores</a>
+            <a href="contacto.html">Contacto</a>
+          </nav>
+
+          <div class="header-right">
+            <div class="social" aria-label="Redes sociales">
+              <a
+                href="https://www.facebook.com/share/1L26wHVXCZ/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+              >
+                <img src="img/logo facebook.png" alt="Facebook" />
+              </a>
+              <a
+                href="https://www.instagram.com/cocinox_2026?igsh=MXByeGYxMDZ1N3BxMA=="
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+              >
+                <img src="img/logo instagram.png" alt="Instagram" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@cocinox_2026?_r=1&_t=ZS-91fcSIJhsVY"
+                target="_blank"
+                rel="noopener"
+                aria-label="TikTok"
+                class="social-tiktok"
+              >
+                <img src="img/logo tiktok.png" alt="TikTok" />
+              </a>
+              <a
+                href="https://wa.me/51936849882?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20COCINOX%202026."
+                target="_blank"
+                rel="noopener"
+                aria-label="WhatsApp"
+                class="social-whatsapp"
+              >
+               <img src="img/logo whatsapp.png" alt="Whatsapp" />
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                  <circle cx="16" cy="16" r="14" fill="none"></circle>
+                  <path
+                    fill="#ffffff"
+                    d="M16 7.2c-4.8 0-8.7 3.7-8.7 8.2 0 1.5.4 3 1.2 4.3L7 25l5.5-1.5c1.2.6 2.6.8 4 .8 4.8 0 8.7-3.7 8.7-8.2S20.8 7.2 16 7.2zm4.1 11.9c-.2.6-1.1 1-1.5 1.1-.4.1-.9.2-1.5.1-1.3-.1-2.4-.8-3.3-1.3-1-.6-2.3-2-2.6-2.9-.3-.9-.3-1.7 0-2.3.3-.6.7-.8.9-.8h.7c.2 0 .4 0 .6.5.2.5.7 1.7.7 1.8.1.1.1.3 0 .4-.1.1-.1.2-.2.3l-.3.4c-.1.1-.2.2-.1.4.1.2.5.8 1.1 1.3.7.6 1.3.8 1.6.9.2.1.4 0 .6-.2l.4-.6c.2-.2.3-.3.5-.2.2.1 1.5.7 1.8.9.3.2.4.3.5.4.1.1.1.6-.1 1.2z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="mailto:cocinox2026@gmail.com" aria-label="Correo">
+                <img src="img/logo correo.png" alt="Correo" />
+              </a>
+            </div>
+
+            <div class="auth-links">
+              <a href="registro.html" class="btn btn-outline btn-small"
+                >Registrar</a
+              >
+              <a href="acceso.html" class="btn btn-primary btn-small"
+                >Acceder</a
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENIDO -->
+      <main>
+        <div class="wrap">
+          <div class="auth-layout">
+            <div class="auth-copy">
+              <h1>Acceso a COCINOX 2026</h1>
+              <p>
+                
+              </p>
+            </div>
+
+            <div class="auth-card">
+              <h2>Inicia sesión</h2>
+              <small>Acceso para cuentas registradas.</small>
+
+              <form action="#" method="post">
+                <div class="field">
+                  <label for="email">Correo electrónico</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="tucorreo@ejemplo.com"
+                    required
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="password">Contraseña</label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="••••••••"
+                    required
+                  />
+                </div>
+
+                <div class="forgot-link">
+                  <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <div class="auth-actions">
+                  <button type="submit" class="btn btn-primary" disabled>
+                    Acceder
+                  </button>
+                  <p>
+                    
+                  </p>
+                  <p>
+                    ¿Aún no tienes cuenta?
+                    <a href="registro.html" class="link-inline">Ir a Registrar</a>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="wrap">
+          <span>© 2026 COCINOX 2026. Equipamiento y Soluciones Gastronómicas.</span>
+          <span>Centro de Convenciones de Lima · Sala Plenaria · Lima, Perú</span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
